@@ -5,7 +5,6 @@ using EgyBestFilm.Application.Services.AccountService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System.Security.Claims;
 
 namespace EgyBest.Presentaion.Controllers
