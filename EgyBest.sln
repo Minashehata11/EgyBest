@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgyBest.Domain", "EgyBest.Domain\EgyBest.Domain.csproj", "{FC2E3399-3BFD-4353-A110-E01B308FC11B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgyBestFilm.Application", "EgyBestFilm.Application\EgyBestFilm.Application.csproj", "{E12F2046-C5EE-48A7-A9C0-868328055E10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgyBest.Infrastructure", "EgyBest\EgyBest.Infrastructure.csproj", "{25F1C0A6-0CB9-416F-A70F-8EBA9A4D65C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgyBest.Presentaion", "EgyBest.Presentaion\EgyBest.Presentaion.csproj", "{1FEF47C3-BA9D-4130-80A1-05904281BC71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC2E3399-3BFD-4353-A110-E01B308FC11B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC2E3399-3BFD-4353-A110-E01B308FC11B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC2E3399-3BFD-4353-A110-E01B308FC11B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC2E3399-3BFD-4353-A110-E01B308FC11B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E12F2046-C5EE-48A7-A9C0-868328055E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E12F2046-C5EE-48A7-A9C0-868328055E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E12F2046-C5EE-48A7-A9C0-868328055E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E12F2046-C5EE-48A7-A9C0-868328055E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F1C0A6-0CB9-416F-A70F-8EBA9A4D65C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F1C0A6-0CB9-416F-A70F-8EBA9A4D65C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F1C0A6-0CB9-416F-A70F-8EBA9A4D65C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F1C0A6-0CB9-416F-A70F-8EBA9A4D65C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FEF47C3-BA9D-4130-80A1-05904281BC71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEF47C3-BA9D-4130-80A1-05904281BC71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEF47C3-BA9D-4130-80A1-05904281BC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEF47C3-BA9D-4130-80A1-05904281BC71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16BB318C-3B35-45D3-B4B6-F84421D9ADB4}
+	EndGlobalSection
+EndGlobal
