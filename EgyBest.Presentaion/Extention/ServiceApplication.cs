@@ -12,9 +12,15 @@ using EgyBestFilm.Application.Services.MovieService;
 using EgyBestFilm.Application.Services.SuperAdminService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Localization.Routing;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.Globalization;
 using System.Text;
 
 namespace EgyBest.Presentaion.Extention
@@ -38,7 +44,7 @@ namespace EgyBest.Presentaion.Extention
             Services.AddScoped<ITokenService, TokenService>();
             Services.AddScoped<IAccountService, AccountService>();
             Services.AddScoped<IAdminService, AdminService>();
-            Services.AddScoped<ISuperAdminService,SuperAdminService>();
+            Services.AddScoped<ISuperAdminService, SuperAdminService>();
             Services.AddAutoMapper(typeof(MappingProfile));
             Services.Configure<ApiBehaviorOptions>(option =>
             {
@@ -78,6 +84,24 @@ namespace EgyBest.Presentaion.Extention
             Services.AddAuthorization();
             Services.AddEndpointsApiExplorer();
             Services.AddSwaggerDocumentation();
+
+            Services.AddLocalization(Options => Options.ResourcesPath = "Resources");
+            Services.Configure<RequestLocalizationOptions>(Options =>
+            {
+            var supportedCulteres = new List<CultureInfo>
+                {
+                    new CultureInfo("en"),
+                    new CultureInfo("ar"),
+                    new CultureInfo("fr")
+            };
+           
+             Options.DefaultRequestCulture = new RequestCulture(culture: "ar", uiCulture: "ar");
+            Options.SupportedCultures = supportedCulteres;
+            Options.SupportedUICultures = supportedCulteres;
+
+             });
+           
+
 
             return Services;
         }

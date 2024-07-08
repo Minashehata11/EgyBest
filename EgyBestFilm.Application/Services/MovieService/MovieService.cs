@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
 using EgyBest.Domain.Models;
-using EgyBest.Infrastructure.Interfaces;
 using EgyBest.Infrastructure.Specefications.MovieSpecefication;
 using EgyBestFilm.Application.Dtos;
-using EgyBestFilm.Application.ErrorHandle;
-using EgyBestFilm.Application.Helper;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace EgyBestFilm.Application.Services.MovieService
 {
@@ -18,6 +14,7 @@ namespace EgyBestFilm.Application.Services.MovieService
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+           
         }
 
         public async Task<bool> AddRate(int id,float rate)
@@ -34,9 +31,9 @@ namespace EgyBestFilm.Application.Services.MovieService
 
         public async Task<IReadOnlyList<GeneraDto> > GetAllGeners()
         {
-             var Geners=await _unitOfWork.Repository<Genere>().GetAllAsync();
+            var Geners=await _unitOfWork.Repository<Genere>().GetAllAsync();
              var MappedData=_mapper.Map<IReadOnlyList<GeneraDto>>(Geners);
-             return MappedData;
+            return MappedData;
         }
 
         public async Task<PaginatedResultDto<MovieDto>> GetAllMovies(SpecParameter spec)

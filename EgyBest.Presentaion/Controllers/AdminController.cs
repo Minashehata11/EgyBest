@@ -7,21 +7,26 @@ using EgyBestFilm.Application.ErrorHandle;
 using EgyBestFilm.Application.Services.AdminService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using System.Text.Json;
 
 namespace EgyBest.Presentaion.Controllers
 {
 
-    [Authorize(Roles = "Admin,SuperAdmin")]
+   // [Authorize(Roles = "Admin,SuperAdmin")]
     public class AdminController : BaseController
     {
         private readonly IAdminService _adminService;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-        public AdminController(IAdminService adminService, IMapper mapper, IUnitOfWork unitOfWork)
+        private readonly IStringLocalizer<AdminController> _stringLocalizer;
+
+        public AdminController(IAdminService adminService, IMapper mapper, IUnitOfWork unitOfWork,IStringLocalizer<AdminController> stringLocalizer)
         {
             _adminService = adminService;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _stringLocalizer = stringLocalizer;
         }
 
         [HttpPost]
@@ -33,7 +38,7 @@ namespace EgyBest.Presentaion.Controllers
         [ProducesErrorResponseType(typeof(ErrorApiResponse))]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteGenre(int id)
-            => Ok(await _adminService.DeleteGenre(id) ? "Genre deleted successfully" : Ok(new ErrorApiResponse(400, "Not Found Genera")));
+            => Ok(await _adminService.DeleteGenre(id) ? "Sucess" : BadRequest( new ErrorApiResponse(400,_stringLocalizer["Not Found"]) ));
         [HttpPost("AddMovie")]
         public async Task<ActionResult> AddMoview([FromForm] MovieWithGenre dto)
         {

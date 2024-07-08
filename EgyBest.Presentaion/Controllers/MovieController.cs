@@ -3,6 +3,7 @@ using EgyBestFilm.Application.Dtos;
 using EgyBestFilm.Application.ErrorHandle;
 using EgyBestFilm.Application.Helper;
 using EgyBestFilm.Application.Services.MovieService;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EgyBest.Presentaion.Controllers
@@ -52,7 +53,17 @@ namespace EgyBest.Presentaion.Controllers
                 return NotFound(new ErrorApiResponse(404));
             return Ok(Geneara);
         }
-       
+        [HttpPost]
+        public IActionResult SetLanguage(string culture)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
+
+            return Ok();
+        }
 
     }
 }

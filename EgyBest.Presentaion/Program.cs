@@ -1,7 +1,9 @@
 using EgyBest.Domain.IdentityContext.SeedingData;
 using EgyBest.Domain.Models.Identity;
 using EgyBest.Presentaion.Extention;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 
 namespace EgyBest.Presentaion
 {
@@ -47,6 +49,8 @@ namespace EgyBest.Presentaion
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            var locOptions = services.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(locOptions.Value);
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
